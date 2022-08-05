@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const flightSchema = new mongoose.Schema({
 	airline: String, 
 	airport: String,
+	homeAirport: { type: String, default: "DEN"},
 	flightNo: Number, 
 	departs: Date
 });
