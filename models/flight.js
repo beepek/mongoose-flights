@@ -3,12 +3,26 @@ const mongoose = require('mongoose')
 // Creates the schema, which defines, 
 // what the documents (objects) in a mongodb collection (movies) 
 // will all look like
+const airports = ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'];
+const destinationSchema = new mongoose.Schema({
+	content: String,
+	airport: { type: String, enum: airports },
+	arrivals: Date,
+	//default: 'DEN'//attempting the default destination
+
+});
+
+
+
+
+
+
 const flightSchema = new mongoose.Schema({
 	airline: String, 
-	airport: String,
-	homeAirport: { type: String, default: "DEN"},
+	airport: { type: String, default: "DEN"},
 	flightNo: Number, 
-	departs: Date
+	departs: Date,
+	destinations: [destinationSchema]//one to many, many destinations (at least I think)
 });
 
 // Create our model, which will create the collection, 

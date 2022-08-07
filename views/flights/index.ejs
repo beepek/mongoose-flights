@@ -7,8 +7,13 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title>Mongoose Flights</title>
 </head>
+
+
 <body>
+  <nav><a href="/flights">View All Flights</a><a href="/flights/new">Add Flight</a></nav>
+
   <h1>Flight List</h1>
+  
   <table>
     <thead>
       <tr>
@@ -28,6 +33,8 @@
           <td><%= f.airport %></td>
           <td><%= f.flightNo %></td>
           <td><%= f.departs %> </td>
+          <td><a id="details" href="/flights/<%= f._id %>">Show Details</a></td>
+
           <!-- finish the ternary expression to display
                        'Yes' or 'Nope' --> 
          
@@ -36,6 +43,7 @@
 		<% }) %>
       <!-- Close the forEach using EJS here -->
     </tbody>
+    
   </table>
 </body>
 </html>
