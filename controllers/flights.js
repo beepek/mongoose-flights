@@ -7,7 +7,7 @@ module.exports = {
 	new: newFlight, 
 	create,
 	index,
-	delete: deleteTicket,
+	//delete: deleteTicket,
 	show,
 	
 }
@@ -63,7 +63,3 @@ function create(req, res){
 }
 
 
-function deleteTicket(req, res){
-	Ticket.deleteOne(req.params.id)
-	res.redirect('/tickets');
-}

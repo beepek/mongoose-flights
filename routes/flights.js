@@ -8,5 +8,5 @@ router.get('/new', flightController.new);
 // /movies
 router.get('/:id', flightController.show);
 router.post('/', flightController.create);
-
+//router.delete('/:id', ticketController.delete);
 module.exports = router;

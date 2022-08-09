@@ -22,3 +22,7 @@ function create(req, res) {
 
 //     })
  }
+//  function deleteTicket(req, res){
+// 	Ticket.deleteOne(req.params.id)
+// 	res.redirect('/flights');
+// }
