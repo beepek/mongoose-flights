@@ -1,5 +1,5 @@
 const Flight = require('../models/flight')
-
+const Ticket = require('../models/ticket')
 // import our Model object which can perform crud operations
 // on the movies collection in our mongodb database
 
@@ -7,20 +7,23 @@ module.exports = {
 	new: newFlight, 
 	create,
 	index,
-	delete: deleteFlight,
-	show
+	delete: deleteTicket,
+	show,
+	
 }
 function show(req, res) {
 	Flight.findById(req.params.id, function(err, flightDocument){
+		Ticket.find({flight:req.params.id}, function(err, ticketDocuments){
 		console.log(flightDocument, "flight page")
-		res.render('flights/show', { title: 'Flight Detail', flight: flightDocument});
+		res.render('flights/show', { title: 'Flight Detail', flight: flightDocument, tickets: ticketDocuments});
+		})
 	});
 }
 
 function index(req, res){
 	// List out the flights
 	Flight.find({}, function(err, allOfTheFlightsInTheDatabase){
-		console.log(allOfTheFlightsInTheDatabase, " <- all the flights");
+		//Ticket.find({flightDocumentCreatedInTheDatabase}) " <- all the flights");
 		if(err){
 			res.send('You have an error trying to find the flights, check the terminal')
 		}
@@ -58,14 +61,9 @@ function create(req, res){
 	// make a get request to /todos now
 	})
 }
-function show(req, res){
-	Flight.findById(req.params.id, function(err, flightDocument) {
-		console.log(flightDocument, "show page")
-		res.render('flights/show', { title: 'flight detail', flight: flightDocument});
-	});
-}
 
-function deleteFlight(req, res){
-	Flight.deleteOne(req.params.id)
-	res.redirect('/flights');
+
+function deleteTicket(req, res){
+	Ticket.deleteOne(req.params.id)
+	res.redirect('/tickets');
 }

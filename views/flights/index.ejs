@@ -19,29 +19,34 @@
       <tr>
         <th>Airline</th>
         <th>Airport</th>
+        <th>Arrival</th>
         <th>Flight No</th>
         <th>Departs</th>
+        <th>Destination</th>
+        <th>Tickets Purchased</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Write the line of EJS to iterate over movies using forEach -->
+      
 	  <% flights.forEach(f => { %>
 	   
 	 
         <tr>
           <td><%= f.airline %></td>
+          <td><%= f.arrival %> </td>
           <td><%= f.airport %></td>
           <td><%= f.flightNo %></td>
           <td><%= f.departs %> </td>
+          <td><%= f.ticketsPurchased %> </td>
           <td><a id="details" href="/flights/<%= f._id %>">Show Details</a></td>
+         
 
-          <!-- finish the ternary expression to display
-                       'Yes' or 'Nope' --> 
+       
          
         </tr>
 
 		<% }) %>
-      <!-- Close the forEach using EJS here -->
+   
     </tbody>
     
   </table>

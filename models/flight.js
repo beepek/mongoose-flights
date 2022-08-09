@@ -8,7 +8,7 @@ const destinationSchema = new mongoose.Schema({
 	content: String,
 	airport: { type: String, enum: airports },
 	arrivals: Date,
-	//default: 'DEN'//attempting the default destination
+	
 
 });
 
