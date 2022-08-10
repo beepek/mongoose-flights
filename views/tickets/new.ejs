@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Buy Tickets
+        <form method="POST" action="/flights/<%= flight._id %>/tickets/new">
+            <label>Seat:</label>
+            <input type="text" name="seat" required pattern="[A-F][1-9]\d?" title="Format A thru F , followed by  1 thru 9!" placeholder="A1" >
+            <label>Price:</label>
+            <input type="number" name="price" placeholder="$500">
+            <input type="submit" value="Buy Ticket">
+        
+            </form>
+     </div>
+</body>
+</html>

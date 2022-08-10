@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const ticketsCrtl = require('../controllers/tickets');
+const ticketsCtrl = require('../controllers/tickets');
 
-router.post('/flights/:id/tickets/new', ticketsCrtl.create);
+
+router.get('/flights/:id/tickets/new', ticketsCtrl.new);
+router.post('/flights/:id/tickets/new', ticketsCtrl.create);
 //router.delete('/flights/:id/tickets', ticketsCrtl.delete);
-//router.get('/tickets/:id/', ticketsCtrl.show);
+
     //res.redirect('/flights');
 
 

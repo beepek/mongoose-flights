@@ -23,7 +23,7 @@ function show(req, res) {
 function index(req, res){
 	// List out the flights
 	Flight.find({}, function(err, allOfTheFlightsInTheDatabase){
-		//Ticket.find({flightDocumentCreatedInTheDatabase}) " <- all the flights");
+		console.log(allOfTheFlightsInTheDatabase);//Ticket.find({flightDocumentCreatedInTheDatabase}) " <- all the flights");
 		if(err){
 			res.send('You have an error trying to find the flights, check the terminal')
 		}
